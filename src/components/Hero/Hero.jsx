@@ -36,8 +36,10 @@ function Hero() {
           </div>
 
           <div className="hero-image fade-in-right">
-                        <img src="/assets/images/nouramr.jpeg" alt="Nour Amr" />
-
+<img
+  src={`${import.meta.env.BASE_URL}assets/images/nouramr.jpeg`}
+  alt="Nour Amr"
+/>
           </div>
         </div>
       </div>

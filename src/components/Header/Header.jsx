@@ -9,8 +9,10 @@ function Header() {
         <div className="nav-container">
 
           <div className="logo">
-              <img src="/assets/images/nouramr.jpeg" alt="Nour Amr" />
-            </div>
+<img
+  src={`${import.meta.env.BASE_URL}assets/images/nouramr.jpeg`}
+  alt="Nour Amr"
+/>            </div>
 
           <ul className="nav-menu" id="navMenu">
             <li>
