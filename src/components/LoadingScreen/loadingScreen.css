@@ -1,0 +1,186 @@
+
+/* Loading Screen */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loadingScreen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#loadingName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    max-width: 95%;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    #loadingName {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.word-abdullah,
+.word-ali,
+.word-elkholy {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0 0 60px rgba(0, 212, 255, 0.9), 
+                 0 0 120px rgba(0, 212, 255, 0.6),
+                 0 30px 80px rgba(0, 0, 0, 0.7);
+    letter-spacing: 8px;
+    line-height: 1.2;
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+}
+
+.word-abdullah {
+    color: #00d4ff;
+}
+
+.word-ali {
+    color: #00ff88;
+}
+
+.word-elkholy {
+    color: #ff6b6b;
+}
+
+.word-abdullah .typed-cursor,
+.word-ali .typed-cursor,
+.word-elkholy .typed-cursor {
+    font-weight: 400;
+    font-size: 5rem;
+    font-family: 'Inter', sans-serif;
+    animation: blink 0.7s infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Eraser Animation Styles - Yellow Circle Brush with Zigzag Pattern */
+.eraser-container {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    transition: left 0.05s linear;
+    animation: zigzagErase 0.3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7),
+                0 0 40px rgba(255, 215, 0, 0.5),
+                inset 0 -5px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.eraser-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+@keyframes zigzagErase {
+    0% {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+    12.5% {
+        transform: translateY(-35%) rotate(-50deg);
+    }
+    25% {
+        transform: translateY(-25%) rotate(-45deg);
+    }
+    37.5% {
+        transform: translateY(-35%) rotate(-40deg);
+    }
+    50% {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+    62.5% {
+        transform: translateY(-65%) rotate(-50deg);
+    }
+    75% {
+        transform: translateY(-75%) rotate(-45deg);
+    }
+    87.5% {
+        transform: translateY(-65%) rotate(-40deg);
+    }
+    100% {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+}
+
+.eraser-container i {
+    display: none;
+}
+
+/* Fade In Animations */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.95);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(80px) scale(0.95);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
